@@ -1,8 +1,8 @@
 # Autonomous Test Agent
 
-An AI agent that takes a URL and a plain-English goal, opens a real browser, completes the flow autonomously, and outputs test steps in FireFlink NLP format ready for execution.
+An AI agent that takes a URL and a plain-English goal, opens a real browser, completes the flow autonomously, and outputs structured test steps ready for execution.
 
-Built as a proposal prototype for AI-native test generation inside FireFlink.
+Built as a proposal prototype for AI-native test case generation.
 
 ---
 
@@ -19,7 +19,7 @@ The agent then:
 3. Asks Claude what to do next given the goal and current page
 4. Executes the action (click, type, select dropdown)
 5. Repeats until the goal is achieved or it hits a safety bound
-6. Outputs a complete FireFlink NLP test case from the captured journey
+6. Outputs a complete test case from the captured journey
 
 ## Architecture
 
@@ -27,7 +27,7 @@ The agent then:
 - **Backend**: Node.js + Express. Streams agent decisions to the UI via Server-Sent Events.
 - **Browser automation**: Playwright (industry standard, Selenium successor).
 - **Agent reasoning**: Anthropic Claude Sonnet 4.5.
-- **Output**: FireFlink NLP step format that maps 1-to-1 with the existing Java NLP class library.
+- **Output**: Plain-English NLP step format that maps 1-to-1 with standard automation libraries.
 
 Pipeline: snapshot → reason → execute → verify, looped with safety bounds (max 15 steps, duplicate-action loop detection).
 
@@ -54,7 +54,7 @@ Requirements: Node.js 18+, an Anthropic API key.
 
 ## How it differs from existing tools
 
-Tools like Mabl, Applitools, and Katalon generate tests for their own platforms. This agent emits FireFlink-native NLP steps that map directly to the existing Java NLP class library, so generated tests integrate without translation middleware.
+Commercial tools like Mabl, Applitools, and Katalon generate tests for their own platforms in proprietary formats. This agent emits plain-English NLP steps that integrate directly into existing Selenium-backed test execution libraries without translation middleware. The output is platform-agnostic and human-readable.
 
 ## V1 limitations (honest)
 
@@ -69,7 +69,7 @@ Tools like Mabl, Applitools, and Katalon generate tests for their own platforms.
 - Multi-agent split: Planner → Locator → Verifier specialists
 - Self-healing selectors with fallback strategies
 - Model routing: Gemini Flash for simple steps (~20x cheaper), Claude for complex reasoning
-- Direct FireFlink platform integration: save generated tests into project files
+- Direct platform integration: save generated tests into existing project files
 
 ## Approximate cost
 
@@ -82,7 +82,7 @@ Tools like Mabl, Applitools, and Katalon generate tests for their own platforms.
 ## Author
 
 Rakshitha Narasimhaiah  
-Solution Consultant (Test Automation), TestYantra Global  
+Solution Consultant (Test Automation)  
 M.S. Data Science and Analytics, Georgia State University
 
 [LinkedIn](https://www.linkedin.com/in/rakshitha-narasimhaiah/)
