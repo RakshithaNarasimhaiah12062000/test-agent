@@ -85,4 +85,4 @@ Rakshitha Narasimhaiah
 Solution Consultant (Test Automation), TestYantra Global  
 M.S. Data Science and Analytics, Georgia State University
 
-[LinkedIn](https://www.linkedin.com/in/rakshithanarasimhaiah)
+[LinkedIn]([https://www.linkedin.com/in/rakshithanarasimhaiah](https://www.linkedin.com/in/rakshitha-narasimhaiah/))
